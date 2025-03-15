@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RS2-EMU - Diaries</title>
+    <meta http-equiv="content-type" content="text/html; charset=iso-8859-1"/>
+    <link rel="stylesheet" type="text/css" href="../../data/css/default.css" media="screen"/>
+    <script src="../../data/js/header.js"></script>
+    <script src="../../data/js/responsive.js"></script>
+    <link href="../../data/css/prism.css" rel="stylesheet"/>
+    <script src="../../data/js/prism.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <div class="title">
+            <h1>RS2-EMU</h1>
+        </div>
+    </div>
+    <div class="navigation">
+        <a href="../../index.html">Home</a>
+        <a href="lumbridge.html">Lumbridge</a>
+        <a href="edgeville.html">Edgeville</a>
+        <a href="ardougne.html">Ardougne</a>
+        <div class="clearer"><span></span></div>
+    </div>
+    <div class="main">
+        <div class="content">
+            <h1>Ardougne</h1>
+            <p><img src="../screenshots/13.03.2025_1.png" alt=""
+                    style="width:100%; max-width:100%; border-radius:10px;"></p>
+            <h2>Copy indexes</h2>
+            <pre><code class="language-kotlin">
+val cacheFrom = CacheLibrary.create("data/cache_from", true, progressListener)
+val cacheTo = CacheLibrary.create("data/cache_to", true, progressListener)
+
+val index = cacheTo.index(7)
+cacheFrom.index(7).cache()
+index.clear()
+index.add(*cacheFrom.index(7).archives())
+index.update()
+cacheTo.rebuild(File("data/cache_rebuild"))
+               </code></pre>
+            <h2>Copy component</h2>
+            <pre><code class="language-kotlin">
+val cacheFrom = CacheLibrary.create("data/cache_from", true, progressListener)
+val cacheTo = CacheLibrary.create("data/cache_to", true, progressListener)
+
+val archiveToCopy = sourceCache.index(3).archive(278)
+
+if (archiveToCopy == null) {
+    println("Archive (interface) not found in source cache.")
+    return
+}
+
+val newId = 834
+val replace = true
+
+destinationCache.index(3).add(archiveToCopy, newId, null, replace)
+destinationCache.index(3).update()
+println("Interface copied successfully with ID: $newId")
+               </code></pre>
+            <h2>Copy Map</h2>
+            <pre><code class="language-kotlin">
+val cacheFrom = CacheLibrary.create("data/cache_from", true, progressListener)
+val cacheTo = CacheLibrary.create("data/cache_to", true, progressListener)
+
+val regionId = 5961
+val x = (regionId shr 8) and 0xFF
+val y = regionId and 0xFF
+val xtea = intArrayOf(-1079239003, -1252985597, -1721093014, 2094235596)
+val regionData = cacheFrom.index(5).archive("l${x}_${y}", xtea)
+
+if (regionData != null) {
+    val fileData = regionData.files()
+    val archiveTo = cacheTo.index(5).add("l${x}_${y}", xtea)
+    archiveTo.add(*fileData)
+    cacheTo.index(5).update()
+    println("Region l${x}_${y} copied.")
+} else {
+    println("Region l${x}_${y} not exist or wrong xtea.")
+}
+               </code></pre>
+        </div>
+    </div>
+    <div class="clearer"><span></span></div>
+    <div class="footer">&copy; 2006 <a href="#">Szumaster</a>. Template design by <a href="https://vikpe.org/">vikpe</a>
+    </div>
+</div>
+</body>
+</html>
