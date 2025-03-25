@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+   <head>
+      <title>Emulation</title>
+      <link rel="manifest" href="site.webmanifest">
+      <script src="data/js/header.js"></script>
+      <script src="data/js/responsive.js"></script>
+      <link rel="stylesheet" href="data/css/default.css">
+   </head>
+   <body>
+      <div class="container">
+         <div class="header">
+            <div class="title">
+               <h1>RS2-EMU</h1>
+            </div>
+         </div>
+         <div class="navigation">
+            <a href="./index.html">Home</a> 
+            <a href="web-content/pages/lumbridge.html">Lumbridge</a>
+            <a href="web-content/pages/edgeville.html">Edgeville</a>
+            <a href="web-content/pages/ardougne.html">Ardougne</a>
+            <div class="clearer"><span></span></div>
+         </div>
+         <div class="main">
+            <div class="content">
+               <h1>Welcome</h1>
+               <p>Tip: The official version is updated according to the official updates, contains all the content that is on the live</p>
+               <p>If you're interested in the single-player version of the official release, follow:
+               <div class="descr"><a href="https://mega.nz/folder/bm5RABLT#9RW51xQgfDWMe6na5KOGzg"><img src="https://i.imgur.com/HjU5Tgj.png" alt=""> Official single-player release.</a></div>
+               </p>
+               <p>If you're interested in the single-player version of the un-official release, follow: 
+               <div class="descr"><a href="https://mega.nz/folder/3ngT2JpZ#NNn2Pb9UCIFaYk2nVHWtAQ"><img src="https://i.imgur.com/HjU5Tgj.png" alt=""> Unofficial single-player release.</a></div>
+               <br>
+               <p><img src="web-content/screenshots/13.03.2025.png" alt=""
+                  style="width:100%; max-width:100%; border-radius:10px;"></p>
+               <p>Fork of <a href="https://gitlab.com/2009scape/2009scape">2009scape</a>.</p>
+               <p>
+                  <img src="https://img.shields.io/badge/license-AGPL--3.0-informational" alt="License">
+                  <img src="https://img.shields.io/badge/constants-library-blue" alt="Library">
+                  <img src="https://img.shields.io/badge/singleplayer-release-blue" alt="Singleplayer Release">
+               </p>
+               <hr>
+               <h2>Table of Contents</h2>
+               <ul>
+                  <li><a href="#essentials">Requirements</a></li>
+                  <li><a href="#forking-the-repository">Forking the Repository</a></li>
+                  <li><a href="#cloning-the-repository">Cloning the Repository</a></li>
+                  <li><a href="#import-into-intellij-idea">Importing into IntelliJ IDEA</a></li>
+                  <li><a href="#setting-up-the-project">Setting Up the Project</a></li>
+                  <li><a href="#launching">Running the Application</a></li>
+                  <li><a href="#gitlab-vcs-in-intellij-idea">Setting Up GitLab with SSH</a></li>
+                  <li><a href="#license">License Information</a></li>
+               </ul>
+               <hr>
+               <h2 id="essentials">Essentials</h2>
+               <p><strong>For Windows users</strong> - Enable developer mode in Windows settings first.</p>
+               <p>Make sure you have the following installed:</p>
+               <ul>
+                  <li><strong>Java 11</strong>: Download from <a href="https://www.oracle.com/java/technologies/javase-jdk11-downloads.html">Oracle</a> or <a href="https://adoptium.net/temurin/releases/?version=11">AdoptOpenJDK</a>.</li>
+                  <li><strong>IntelliJ IDEA</strong>: Download from <a href="https://www.jetbrains.com/idea/download/">JetBrains</a>.</li>
+               </ul>
+               <hr>
+               <h2 id="forking-the-repository">Forking the Repository</h2>
+               <p>1. Click the <strong>Fork</strong> button at the top right to create a personal copy of the repository.</p>
+               <hr>
+               <h2 id="cloning-the-repository">Cloning the Repository</h2>
+               <p>1. After forking the repository, go to your fork's page.</p>
+               <p>2. Click the <strong>Clone</strong> button and copy the URL (either HTTPS or SSH).</p>
+               <p>3. Open a terminal or command prompt and run:</p>
+               <pre><code>git clone &lt;your-fork-url&gt;</code></pre>
+               <h2 id="import-into-intellij-idea">Import into IntelliJ IDEA</h2>
+               <p>1. Open <strong>IntelliJ IDEA</strong>.</p>
+               <p>2. Go to <strong>File &gt; New &gt; Project from Version Control &gt; Git</strong>.</p>
+               <p>3. Paste the cloned repository URL into the <strong>URL</strong> field.</p>
+               <p>4. Click <strong>Clone</strong>.</p>
+               <hr>
+               <h2 id="gitlab-vcs-in-intellij-idea">GitLab VCS in IntelliJ IDEA</h2>
+               <p>Generate an SSH key:</p>
+               <pre><code>ssh-keygen -t ed25519 -C "&lt;comment&gt;"</code></pre>
+               <p>Add the SSH key to your GitLab account.</p>
+               <p>Configure Git:</p>
+               <pre><code>git config --global user.name "Your Name"
+git config --global user.email "your_email@example.com"</code></pre>
+               <hr>
+               <h2 id="setting-up-the-project">Setting Up the Project</h2>
+               <p>1. Open project in IntelliJ IDEA and navigate to <strong>File &gt; Settings</strong> (or <strong>Preferences</strong> on macOS).</p>
+               <p>2. Under <strong>Build, Execution, Deployment &gt; Build Tools</strong>, ensure <strong>Maven</strong> is configured correctly.</p>
+               <p>3. Ensure Java 11 or later is selected as the <strong>Project SDK</strong>.</p>
+               <p>4. Sync the Maven project by clicking on the <strong>Maven</strong> tab and clicking <strong>Refresh</strong>.</p>
+               <hr>
+               <h2 id="launching">Launching</h2>
+               <p>Run the application with Maven:</p>
+               <pre><code>mvn exec:java -f pom.xml</code></pre>
+               <hr>
+               <h2 id="license">License</h2>
+               <p>This project is licensed under the <strong>AGPL 3.0</strong>.</p>
+               <p>You can find more information <a href="https://www.gnu.org/licenses/agpl-3.0.html">here</a>.</p>
+            </div>
+            <div class="sidenav">
+               <h1>Menu</h1>
+               <ul>
+                  <li><a href="#">Topic 0</a></li>
+                  <li><a href="#">Topic 1</a></li>
+                  <li><a href="#">Topic 2</a></li>
+                  <li><a href="#">Topic 3</a></li>
+               </ul>
+               <h1>Menu 2</h1>
+               <ul>
+                  <li><a href="#">Topic 0</a></li>
+                  <li><a href="#">Topic 1</a></li>
+                  <li><a href="#">Topic 2</a></li>
+                  <li><a href="#">Topic 3</a></li>
+               </ul>
+               <h1>Menu 3</h1>
+               <ul>
+                  <li><a href="#">Topic 0</a></li>
+                  <li><a href="#">Topic 1</a></li>
+                  <li><a href="#">Topic 2</a></li>
+                  <li><a href="#">Topic 3</a></li>
+               </ul>
+               <h1>Menu 4</h1>
+               <ul>
+                  <li><a href="#">Topic 0</a></li>
+                  <li><a href="#">Topic 1</a></li>
+                  <li><a href="#">Topic 2</a></li>
+                  <li><a href="#">Topic 3</a></li>
+               </ul>
+            </div>
+            <div class="clearer"><span></span></div>
+         </div>
+    <div class="footer">&copy; 2006-2025 <a href="#">Szumaster</a>. Template design by <a href="https://vikpe.org/">vikpe</a>.
+	</div>
+   </body>
+</html>
