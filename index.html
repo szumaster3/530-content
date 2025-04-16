@@ -27,20 +27,41 @@
           <h1>Emulation (Single-Player)</h1>
           <hr>
           <p>
-              <center>
-              <a href="https://github.com/szumaster3/530-windows/zipball/releases">
-                <img src="data/img/download_button.png" alt="Download">
-              </a>
+            <style>
+              .download-wrapper {
+                text-align: center;
+              }
+
+              .download-button {
+                background-image: url('data/img/download_button.png');
+                display: inline-block;
+                width: 100%;
+                max-width: 1024px;
+                height: auto;
+                aspect-ratio: 1024 / 218;
+                background-size: cover;
+                background-repeat: no-repeat;
+              }
+
+              .download-button:hover {
+                background-image: url('data/img/download_button_hover.png');
+              }
+            </style>
+            <center>
+              <div class="download-wrapper">
+                <a href="https://github.com/szumaster3/530-windows/zipball/releases" class="download-button"></a>
+              </div>
             </center>
           </p>
           <br>
           <h1>Setting up the Game</h1>
           <hr>
           <ul>
-            <li>Run <b>run_server.bat</b> on Windows or <b>run_server.sh</b> on a UNIX-based system.</li>
-            <li>If the server starts, run <b>run_client.bat</b></li>
+            <li>Run <b>run_server.bat</b> on Windows or <b>run_server.sh</b> on a UNIX-based system. </li>
+            <li>If the server starts, run <b>run_client.bat</b>
+            </li>
           </ul>
-          <p>The download directory is synchronized with the repository to ensure it always contains the latest updates. <br> The list of changes is available in the changelogs tab. <br> Downloading Java is not required as it was included in the project. <br>For more information, check the <b>info directory</b> in the downloaded game archive.</p>
+          <p>The download directory is synchronized with the repository to ensure it always contains the latest updates. <br> The list of changes is available in the changelogs tab. <br> Downloading Java is not required as it was included in the project. <br>For more information, check the <b>info directory</b> in the downloaded game archive. </p>
           <p>
             <hr>
           <h1>Official 2009Scape (Live-Server)</h1>
@@ -53,8 +74,8 @@
           </p>
           <hr>
           <h2 id="license">License</h2>
-          <p>This project is licensed under the <strong>AGPL 3.0</strong>.</p>
-          <p>You can find more information <a href="https://www.gnu.org/licenses/agpl-3.0.html">here</a>.</p>
+          <p>This project is licensed under the <strong>AGPL 3.0</strong>. </p>
+          <p>You can find more information <a href="https://www.gnu.org/licenses/agpl-3.0.html">here</a>. </p>
         </div>
         <div class="sidenav">
           <h1>Informations</h1>
@@ -122,7 +143,7 @@
           <span></span>
         </div>
       </div>
-      <div class="footer">&copy; 2006-2025 <a href="https://github.com/szumaster3">szumaster</a>. Template design by <a href="https://vikpe.org/">vikpe</a>.</div>
+      <div class="footer">&copy; 2006-2025 <a href="https://github.com/szumaster3">szumaster</a>. Template design by <a href="https://vikpe.org/">vikpe</a>. </div>
     </div>
   </body>
 </html>
