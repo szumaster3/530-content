@@ -28,56 +28,43 @@
         <div class="content">
           <h1>Emulation (Single-Player)</h1>
           <hr>
-          <p>
-           <style>
+<style>
 .download-wrapper {
   text-align: center;
   position: relative;
+  width: 100%;
 }
 
 .download-button {
-  position: relative;
   display: inline-block;
-  width: 100%;
-  max-width: 1024px;
-  height: auto;
-  aspect-ratio: 1 / 1;
+  position: relative;
+  max-width: 100%;
   overflow: hidden;
 }
 
-.download-button::before,
-.download-button::after {
-  content: "";
+.download-button img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.download-button img.hover {
   position: absolute;
-  inset: 0;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.download-button::before {
-  background-image: url('data/img/download_button.png');
-  z-index: 1;
-}
-
-.download-button::after {
-  background-image: url('data/img/download_button_hover.png');
+  top: 0;
+  left: 0;
   opacity: 0;
-  z-index: 2;
+  width: 100%;
+  height: auto;
+  transition: opacity 0.3s ease;
 }
 
-.download-button:hover::after {
+.download-button:hover img.hover {
   opacity: 1;
 }
 </style>
-            <center>
-              <div class="download-wrapper">
-                <a href="https://github.com/szumaster3/530-windows/zipball/releases" class="download-button"></a>
-              </div>
-            </center>
-          </p>
-          <br>
-          <h1>Setting up the Game</h1>
+<center><div class="download-wrapper"><a href="https://github.com/szumaster3/530-windows/zipball/releases" class="download-button"><img src="data/img/download_button.png" alt="Download"><img src="data/img/download_button_hover.png" alt="Download Hover" class="hover"></a></div></center>
+
+          <h1>How to play</h1>
           <hr>
           <ul>
             <li>Run <b>run_server.bat</b> on Windows or <b>run_server.sh</b> on a UNIX-based system. </li>
@@ -86,15 +73,6 @@
           </ul>
           <p>The download directory is synchronized with the repository to ensure it always contains the latest updates. <br> The list of changes is available in the changelogs tab. <br> Downloading Java is not required as it was included in the project. <br>For more information, check the <b>info directory</b> in the downloaded game archive. </p>
           <p>
-            <hr>
-          <h1>Official 2009Scape (Live-Server)</h1>
-          <p>
-
-              <a href="https://2009scape.org">
-                <img src="data/img/play_button.png" alt="Play">
-              </a>
-
-          </p>
           <hr>
           <h2 id="license">License</h2>
           <p>This project is licensed under the <strong>AGPL 3.0</strong>. </p>
