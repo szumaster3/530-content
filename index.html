@@ -8,6 +8,7 @@
     <script src="data/js/header.js"></script>
     <script src="data/js/responsive.js"></script>
     <link rel="stylesheet" href="data/css/default.css">
+	<link rel="preload" as="image" href="data/img/download_button_hover.png">
   </head>
   <body>
     <div class="container">
@@ -28,26 +29,48 @@
           <h1>Emulation (Single-Player)</h1>
           <hr>
           <p>
-            <style>
-              .download-wrapper {
-                text-align: center;
-              }
+           <style>
+.download-wrapper {
+  text-align: center;
+  position: relative;
+}
 
-              .download-button {
-                background-image: url('data/img/download_button.png');
-                display: inline-block;
-                width: 100%;
-                max-width: 1024px;
-                height: auto;
-                aspect-ratio: 1 / 1;
-                background-size: cover;
-                background-repeat: no-repeat;
-              }
+.download-button {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  max-width: 1024px;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
 
-              .download-button:hover {
-                background-image: url('data/img/download_button_hover.png');
-              }
-            </style>
+.download-button::before,
+.download-button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: opacity 0.3s ease;
+}
+
+.download-button::before {
+  background-image: url('data/img/download_button.png');
+  z-index: 1;
+}
+
+.download-button::after {
+  background-image: url('data/img/download_button_hover.png');
+  opacity: 0;
+  z-index: 2;
+}
+
+.download-button:hover::after {
+  opacity: 1;
+}
+</style>
             <center>
               <div class="download-wrapper">
                 <a href="https://github.com/szumaster3/530-windows/zipball/releases" class="download-button"></a>
